@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -30,15 +30,45 @@ export default function ClassyProjectCard({
   isInteractive = false,
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [shouldLoadIframe, setShouldLoadIframe] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const shapeClass = cardShapes[index % cardShapes.length];
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            // Delay iframe loading for better performance
+            setTimeout(() => setShouldLoadIframe(true), 300);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '50px' }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      ref={cardRef}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.1,
+        duration: 0.3,
+        delay: index * 0.05,
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -52,13 +82,19 @@ export default function ClassyProjectCard({
             <>
               <div className="absolute inset-0 p-4">
                 <div className="relative w-full h-full bg-white rounded-lg shadow-inner overflow-hidden border border-gray-200">
-                  <iframe
-                    src={link}
-                    className="w-full h-full pointer-events-auto"
-                    title={title}
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    loading="lazy"
-                  />
+                  {shouldLoadIframe ? (
+                    <iframe
+                      src={link}
+                      className="w-full h-full pointer-events-auto"
+                      title={title}
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                      <div className="text-gray-400 text-sm">Loading preview...</div>
+                    </div>
+                  )}
                 </div>
               </div>
               {/* Device frame overlay */}

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
+import WalkingRobot from "@/components/WalkingRobot";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         <LoadingScreen />
         <Navigation />
+        <WalkingRobot />
         <main className="min-h-screen pt-20">{children}</main>
         <Footer />
       </body>

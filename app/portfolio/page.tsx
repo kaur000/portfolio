@@ -6,6 +6,17 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 
 const projects = [
   {
+    title: "Shopify E-commerce Store",
+    description: [
+      "Built custom Shopify store for online retail business with product catalog integration.",
+      "Configured payment gateways, shipping options, and inventory management systems.",
+      "Customized theme and layout to match brand identity and enhance user experience.",
+    ],
+    image: "/shopify.png",
+    link: "https://2efh8b-by.myshopify.com/",
+    isInteractive: false,
+  },
+  {
     title: "ShopMDM - E-commerce Platform",
     description: [
       "Developed and launched a full-featured e-commerce platform for mobile device management.",
