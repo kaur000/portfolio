@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Palette, Figma, Laptop, GraduationCap, Award, Sparkles, Zap } from "lucide-react";
+import { Code2, Palette, Figma, Laptop, GraduationCap, Award, Sparkles, Zap, Heart, Users, Lightbulb, Target } from "lucide-react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 
 const skills = [
@@ -12,17 +12,7 @@ const skills = [
       { name: "Figma", level: 95 },
       { name: "Adobe XD", level: 85 },
       { name: "Adobe Photoshop", level: 80 },
-      { name: "Illustrator", level: 75 },
-    ],
-  },
-  {
-    category: "Development",
-    icon: Code2,
-    items: [
-      { name: "HTML/CSS", level: 90 },
-      { name: "JavaScript", level: 85 },
-      { name: "React", level: 80 },
-      { name: "Tailwind CSS", level: 90 },
+      { name: "Canva", level: 90 },
     ],
   },
   {
@@ -32,7 +22,17 @@ const skills = [
       { name: "User Research", level: 90 },
       { name: "Wireframing", level: 95 },
       { name: "Prototyping", level: 95 },
-      { name: "Design Systems", level: 85 },
+      { name: "Responsive Design", level: 90 },
+    ],
+  },
+  {
+    category: "Web Platforms",
+    icon: Code2,
+    items: [
+      { name: "WordPress", level: 90 },
+      { name: "Shopify", level: 85 },
+      { name: "Squarespace", level: 80 },
+      { name: "Elementor Pro", level: 85 },
     ],
   },
 ];
@@ -50,21 +50,65 @@ const achievements = [
   },
   {
     icon: Laptop,
-    title: "Web Developer Intern",
-    description: "Built responsive e-commerce site with WordPress, WooCommerce integration",
+    title: "Web Developer Intern - ShopMDM",
+    description: "Built responsive e-commerce site with WordPress, WooCommerce integration for mobile device management",
+  },
+  {
+    icon: Code2,
+    title: "E-commerce Specialist",
+    description: "Built multiple online stores using Shopify, WordPress, and WooCommerce platforms",
+  },
+  {
+    icon: Sparkles,
+    title: "Self-Taught Designer",
+    description: "Mastered Figma, Adobe XD, and modern design principles through online courses and practice",
   },
   {
     icon: Zap,
-    title: "Google UX Design Certified",
-    description: "Currently pursuing certification in UX design principles and practices",
+    title: "Fast Learner & Problem Solver",
+    description: "Quickly adapts to new technologies and frameworks, from Squarespace to Elementor Pro",
+  },
+];
+
+const softSkills = [
+  {
+    icon: Heart,
+    title: "Passionate Learner",
+    description: "Always eager to learn new design trends, tools, and technologies",
+  },
+  {
+    icon: Sparkles,
+    title: "AI Enthusiast",
+    description: "Excited about AI tools like Claude, ChatGPT, and Canva AI to enhance design workflow",
+  },
+  {
+    icon: Users,
+    title: "Team Player",
+    description: "Strong collaboration skills developed through leading IT teams and working with clients",
+  },
+  {
+    icon: Lightbulb,
+    title: "Creative Problem Solver",
+    description: "Approaches challenges with innovative solutions and user-centered thinking",
+  },
+  {
+    icon: Target,
+    title: "Detail-Oriented",
+    description: "Meticulous attention to design details and user experience optimization",
   },
 ];
 
 const journey = [
   {
+    year: "Oct 2025",
+    title: "Freelance Shopify Developer",
+    description: "Built custom Shopify e-commerce store with product catalog, payment integration, and inventory management for online retail client",
+    color: "from-green-500 to-emerald-500",
+  },
+  {
     year: "Mar-Jul 2025",
-    title: "Web Developer Intern",
-    description: "Developed responsive e-commerce website using WordPress and Elementor Pro, integrated WooCommerce for online shopping",
+    title: "Web Developer Intern - ShopMDM",
+    description: "Developed responsive e-commerce website (shopmdm.com) using WordPress and Elementor Pro, integrated WooCommerce for mobile device management sales",
     color: "from-cyan-500 to-blue-500",
   },
   {
@@ -109,7 +153,7 @@ export default function AboutPage() {
                 I&apos;m a <span className="text-gray-900 font-semibold">UX/UI Designer and Software Developer</span> based in Seattle, passionate about building user-friendly websites, prototypes, and full-stack applications.
               </p>
               <p>
-                With experience in front-end technologies, cloud deployment, and team leadership, I combine technical expertise with design aesthetics to create exceptional digital experiences.
+                With experience in front-end technologies, cloud deployment, and team leadership, I combine technical expertise with design aesthetics to create exceptional digital experiences. I&apos;m excited about AI tools like Claude, ChatGPT, and Canva AI, using them to streamline my design process and unlock creative possibilities.
               </p>
             </div>
           </motion.div>
@@ -176,11 +220,43 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
+          {/* Soft Skills Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mb-20 max-w-4xl mx-auto"
+          >
+            <h2 className="text-2xl font-display font-bold text-gray-900 mb-8">What Makes Me Different</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {softSkills.map((skill, index) => (
+                <motion.div
+                  key={skill.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                  className="p-6 rounded-xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:border-pink-200 hover:shadow-md transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100">
+                      <skill.icon className="text-pink-600" size={24} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 mb-2">{skill.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{skill.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
           {/* Timeline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
             className="mb-20 max-w-4xl mx-auto"
           >
             <h2 className="text-2xl font-display font-bold text-gray-900 mb-8">Journey</h2>
