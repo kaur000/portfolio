@@ -99,10 +99,10 @@ export default function Portfolio() {
             className="mt-24 text-center"
           >
             <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-4">
-              Let's work together
+              Let&apos;s work together
             </h2>
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-              Have a project in mind? I'd love to hear about it.
+              Have a project in mind? I&apos;d love to hear about it.
             </p>
             <motion.a
               href="mailto:mehaksaini09@yahoo.com"

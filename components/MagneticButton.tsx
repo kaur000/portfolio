@@ -20,7 +20,7 @@ export default function MagneticButton({
   target,
   rel,
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement & HTMLAnchorElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouse = (e: React.MouseEvent) => {
@@ -41,7 +41,7 @@ export default function MagneticButton({
 
   return (
     <Component
-      ref={ref}
+      ref={ref as any}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
       onClick={onClick}

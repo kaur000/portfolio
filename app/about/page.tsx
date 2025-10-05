@@ -106,7 +106,7 @@ export default function AboutPage() {
             </h1>
             <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
               <p>
-                I'm a <span className="text-gray-900 font-semibold">UX/UI Designer and Software Developer</span> based in Seattle, passionate about building user-friendly websites, prototypes, and full-stack applications.
+                I&apos;m a <span className="text-gray-900 font-semibold">UX/UI Designer and Software Developer</span> based in Seattle, passionate about building user-friendly websites, prototypes, and full-stack applications.
               </p>
               <p>
                 With experience in front-end technologies, cloud deployment, and team leadership, I combine technical expertise with design aesthetics to create exceptional digital experiences.
@@ -211,7 +211,7 @@ export default function AboutPage() {
             className="text-center max-w-2xl mx-auto"
           >
             <p className="text-lg text-gray-600 mb-6">
-              Interested in collaborating? Let's talk.
+              Interested in collaborating? Let&apos;s talk.
             </p>
             <motion.a
               href="mailto:mehaksaini09@yahoo.com"
