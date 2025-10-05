@@ -75,39 +75,49 @@ export default function ClassyProjectCard({
       className="group h-full"
     >
       <div className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 hover:border-gray-300 transition-all duration-300 h-full flex flex-col hover:shadow-lg">
-        {/* Preview Section - Interactive or Static */}
-        <div className="relative h-80 overflow-hidden flex-shrink-0 bg-gray-50">
-          {isInteractive ? (
-            // Interactive iframe preview for live websites
-            <>
-              <div className="absolute inset-0 p-4">
-                <div className="relative w-full h-full bg-white rounded-lg shadow-inner overflow-hidden border border-gray-200">
-                  {shouldLoadIframe ? (
-                    <iframe
-                      src={link}
-                      className="w-full h-full pointer-events-auto"
-                      title={title}
-                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                      <div className="text-gray-400 text-sm">Loading preview...</div>
-                    </div>
-                  )}
-                </div>
+        {/* Preview Section - Consistent Browser Window Look */}
+        <div className="relative h-80 overflow-hidden flex-shrink-0 bg-gray-100">
+          {/* Browser Window Frame */}
+          <div className="absolute top-0 left-0 right-0 h-10 bg-white border-b border-gray-200 z-10 flex items-center px-4 gap-2">
+            {/* Window Buttons */}
+            <div className="flex gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-red-400"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div className="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+            {/* URL Bar */}
+            <div className="flex-1 ml-4 flex items-center">
+              <div className="flex-1 bg-gray-100 rounded-md px-3 py-1 text-xs text-gray-500 truncate">
+                {link}
               </div>
-              {/* Device frame overlay */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-1 bg-gray-300 rounded-full" />
+            </div>
+          </div>
+
+          {/* Preview Content Area */}
+          <div className="absolute inset-0 top-10 bg-white overflow-hidden">
+            {isInteractive ? (
+              // Interactive iframe preview for live websites
+              <div className="w-full h-full">
+                {shouldLoadIframe ? (
+                  <iframe
+                    src={link}
+                    className="w-full h-full pointer-events-auto"
+                    title={title}
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-50">
+                    <div className="text-gray-400 text-sm">Loading preview...</div>
+                  </div>
+                )}
               </div>
-            </>
-          ) : (
-            // Static image preview for Figma prototypes
-            <>
+            ) : (
+              // Static image preview with hover effect
               <motion.div
                 animate={{ scale: isHovered ? 1.05 : 1 }}
                 transition={{ duration: 0.4 }}
+                className="w-full h-full relative"
               >
                 <Image
                   src={image}
@@ -116,11 +126,11 @@ export default function ClassyProjectCard({
                   className="object-cover"
                   priority={index < 2}
                 />
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
-              {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </>
-          )}
+            )}
+          </div>
         </div>
 
         {/* Content Section */}
