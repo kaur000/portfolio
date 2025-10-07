@@ -3,7 +3,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const skills = [
+type SkillSize = "small" | "medium" | "large";
+type SkillColor = "pink" | "purple" | "rose";
+
+const skills: { name: string; size: SkillSize; color: SkillColor }[] = [
   { name: "Figma", size: "large", color: "pink" },
   { name: "UI/UX Design", size: "large", color: "purple" },
   { name: "WordPress", size: "large", color: "rose" },
@@ -26,13 +29,13 @@ const skills = [
   { name: "JavaScript", size: "medium", color: "purple" },
 ];
 
-const sizeStyles = {
+const sizeStyles: Record<SkillSize, string> = {
   small: "text-sm px-4 py-2",
   medium: "text-base px-5 py-2.5",
   large: "text-lg px-6 py-3",
 };
 
-const colorStyles = {
+const colorStyles: Record<SkillColor, { light: string; dark: string }> = {
   pink: {
     light: "bg-pink-100 text-pink-700 border-pink-200 hover:bg-pink-200 hover:border-pink-300",
     dark: "dark:bg-pink-900/30 dark:text-pink-200 dark:border-pink-500/30 dark:hover:bg-pink-800/40 dark:hover:border-pink-400/50",
