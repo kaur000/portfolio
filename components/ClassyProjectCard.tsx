@@ -74,11 +74,11 @@ export default function ClassyProjectCard({
       onMouseLeave={() => setIsHovered(false)}
       className="group h-full"
     >
-      <div className="relative overflow-hidden bg-white rounded-2xl border border-gray-200 hover:border-gray-300 transition-all duration-300 h-full flex flex-col hover:shadow-lg">
+      <div className="relative overflow-hidden bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-pink-500/20 hover:border-gray-300 dark:hover:border-pink-500/30 transition-all duration-300 h-full flex flex-col hover:shadow-lg">
         {/* Preview Section - Consistent Browser Window Look */}
-        <div className="relative h-80 overflow-hidden flex-shrink-0 bg-gray-100">
+        <div className="relative h-80 overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-gray-900/50">
           {/* Browser Window Frame */}
-          <div className="absolute top-0 left-0 right-0 h-10 bg-white border-b border-gray-200 z-10 flex items-center px-4 gap-2">
+          <div className="absolute top-0 left-0 right-0 h-10 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-pink-500/20 z-10 flex items-center px-4 gap-2">
             {/* Window Buttons */}
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-400"></div>
@@ -87,7 +87,7 @@ export default function ClassyProjectCard({
             </div>
             {/* URL Bar */}
             <div className="flex-1 ml-4 flex items-center">
-              <div className="flex-1 bg-gray-100 rounded-md px-3 py-1 text-xs text-gray-500 truncate">
+              <div className="flex-1 bg-gray-100 dark:bg-gray-700/50 rounded-md px-3 py-1 text-xs text-gray-500 dark:text-pink-200/70 truncate">
                 {link}
               </div>
             </div>
@@ -107,8 +107,8 @@ export default function ClassyProjectCard({
                     loading="lazy"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-50">
-                    <div className="text-gray-400 text-sm">Loading preview...</div>
+                  <div className="w-full h-full flex items-center justify-center bg-gray-50 dark:bg-gray-800">
+                    <div className="text-gray-400 dark:text-pink-200/70 text-sm">Loading preview...</div>
                   </div>
                 )}
               </div>
@@ -136,7 +136,7 @@ export default function ClassyProjectCard({
         {/* Content Section */}
         <div className="p-6 flex-1 flex flex-col">
           {/* Title */}
-          <h3 className="text-xl font-display font-semibold mb-3 text-gray-900 leading-tight">
+          <h3 className="text-xl font-display font-semibold mb-3 text-gray-900 dark:text-pink-50 leading-tight">
             {title}
           </h3>
 
@@ -145,9 +145,9 @@ export default function ClassyProjectCard({
             {description.map((item, i) => (
               <li
                 key={i}
-                className="flex items-start text-gray-600 leading-relaxed text-sm"
+                className="flex items-start text-gray-600 dark:text-pink-100/80 leading-relaxed text-sm"
               >
-                <span className="inline-block w-1 h-1 rounded-full bg-gray-400 mt-2 mr-2.5 flex-shrink-0" />
+                <span className="inline-block w-1 h-1 rounded-full bg-gray-400 dark:bg-pink-300 mt-2 mr-2.5 flex-shrink-0" />
                 <span>{item}</span>
               </li>
             ))}
@@ -159,7 +159,7 @@ export default function ClassyProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ gap: "0.75rem" }}
-            className="inline-flex items-center gap-2 text-gray-900 font-medium group hover:text-pink-600 transition-colors w-fit"
+            className="inline-flex items-center gap-2 text-gray-900 dark:text-pink-50 font-medium group hover:text-pink-600 dark:hover:text-pink-200 transition-colors w-fit"
           >
             {isInteractive ? "View Full Site" : "View Project"}
             <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

@@ -5,7 +5,7 @@ import { Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-pink-100/50 bg-white/80 backdrop-blur-md mt-20">
+    <footer className="relative border-t border-pink-100/50 dark:border-pink-500/20 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -14,7 +14,7 @@ export default function Footer() {
           className="text-center"
         >
           {/* Copyright */}
-          <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
+          <div className="flex items-center justify-center gap-2 text-gray-500 dark:text-pink-200/70 text-sm">
             <span>© 2025 Mehak Saini</span>
             <motion.div
               animate={{

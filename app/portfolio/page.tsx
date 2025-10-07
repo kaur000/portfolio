@@ -87,10 +87,10 @@ export default function Portfolio() {
             transition={{ duration: 0.5 }}
             className="mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-gray-900 mb-3">
+            <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-gray-900 dark:text-pink-50 mb-3">
               Selected Work
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 dark:text-pink-100/80">
               {projects.length} projects showcasing design & development
             </p>
           </motion.div>
@@ -109,17 +109,17 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-24 text-center"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-pink-50 mb-4">
               Let&apos;s work together
             </h2>
-            <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+            <p className="text-gray-600 dark:text-pink-100/80 mb-6 max-w-xl mx-auto">
               Have a project in mind? I&apos;d love to hear about it.
             </p>
             <motion.a
               href="mailto:mehaksaini09@yahoo.com"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-block px-8 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+              className="inline-block px-8 py-3 bg-gray-900 dark:bg-pink-600 text-white dark:text-pink-50 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-pink-700 transition-colors"
             >
               Start a Conversation
             </motion.a>

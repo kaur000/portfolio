@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function AnimatedBackground() {
   return (
-    <div className="fixed inset-0 -z-20 overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50">
+    <div className="fixed inset-0 -z-20 overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50 dark:from-pink-900 dark:via-pink-950 dark:to-rose-950">
       {/* Subtle gradient orbs - PROFESSIONAL & CLASSY */}
       <motion.div
         className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full blur-3xl opacity-20"

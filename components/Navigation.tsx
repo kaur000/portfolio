@@ -22,7 +22,7 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/95 border-b border-pink-100/50"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/95 dark:bg-gray-900/95 border-b border-pink-100/50 dark:border-gray-700/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -31,7 +31,7 @@ export default function Navigation() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="text-2xl font-black text-gray-900 tracking-tight"
+              className="text-2xl font-black text-gray-900 dark:text-white tracking-tight"
             >
               M<span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">S</span>
             </motion.div>
@@ -46,8 +46,8 @@ export default function Navigation() {
                   className={cn(
                     "px-5 py-2 rounded-lg font-medium transition-all duration-300",
                     pathname === item.path
-                      ? "bg-gradient-to-r from-pink-100 to-purple-100 text-pink-600"
-                      : "text-gray-600 hover:text-pink-600 hover:bg-pink-50"
+                      ? "bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/30 dark:to-purple-900/30 text-pink-600 dark:text-pink-400"
+                      : "text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 hover:bg-pink-50 dark:hover:bg-gray-800"
                   )}
                 >
                   {item.name}
