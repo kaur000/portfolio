@@ -7,7 +7,6 @@ import LoadingScreen from "@/components/LoadingScreen";
 import WalkingRobot from "@/components/WalkingRobot";
 import ThemeToggle from "@/components/ThemeToggle";
 import CursorTrail from "@/components/CursorTrail";
-import EmojiReactions from "@/components/EmojiReactions";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,7 +36,6 @@ export default function RootLayout({
         <Navigation />
         <ThemeToggle />
         <WalkingRobot />
-        <EmojiReactions />
         <main className="min-h-screen pt-20">{children}</main>
         <Footer />
       </body>
