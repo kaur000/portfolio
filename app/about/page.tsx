@@ -56,9 +56,8 @@ const skills = [
     icon: Zap,
     items: [
       { name: "Claude AI", level: 95 },
-      { name: "Gemini CLI", level: 85 },
-      { name: "AI Content Generation", level: 90 },
-      { name: "Claude Code CLI", level: 90 },
+      { name: "Claude Code CLI", level: 85 },
+      { name: "Gemini CLI", level: 90 },
     ],
   },
 ];

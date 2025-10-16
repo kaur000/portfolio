@@ -17,6 +17,17 @@ const projects = [
     isInteractive: false,
   },
   {
+    title: "ShopMDM - E-commerce Platform",
+    description: [
+      "Developed and launched a full-featured e-commerce platform.",
+      "Implemented secure payment processing, inventory management, and user authentication.",
+      "Designed responsive UI/UX to ensure seamless shopping experience across all devices.",
+    ],
+    image: "/shopmdm.png",
+    link: "https://shopmdm.com",
+    isInteractive: true,
+  },
+  {
     title: "Shopify E-commerce Store",
     description: [
       "Built custom Shopify store for online retail business with product catalog integration.",
@@ -26,17 +37,6 @@ const projects = [
     image: "/shopify.png",
     link: "https://2efh8b-by.myshopify.com/",
     isInteractive: false,
-  },
-  {
-    title: "ShopMDM - E-commerce Platform",
-    description: [
-      "Developed and launched a full-featured e-commerce platform for mobile device management.",
-      "Implemented secure payment processing, inventory management, and user authentication.",
-      "Designed responsive UI/UX to ensure seamless shopping experience across all devices.",
-    ],
-    image: "/shopmdm.png",
-    link: "https://shopmdm.com",
-    isInteractive: true,
   },
   {
     title: "Spotify Pages Replication (Figma)",

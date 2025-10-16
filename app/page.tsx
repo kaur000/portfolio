@@ -75,7 +75,7 @@ export default function Home() {
                 <p className="text-base md:text-lg text-gray-600 dark:text-pink-100/80 leading-relaxed">
                   UX/UI Designer crafting user-centered digital experiences.
                   Combining design aesthetics with technical expertise from my Software Development background.
-                  Passionate about leveraging AI tools to enhance design workflows and create innovative solutions. I believe creativity is magic.
+                  Passionate about leveraging AI tools to enhance design workflows and create innovative solutions. I believe <span className="font-bold">creativity is King</span>.
                 </p>
               </motion.div>
 
@@ -187,7 +187,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-semibold text-gray-900 dark:text-pink-50 mb-1">Shopify E-commerce</h3>
+                  <h3 className="font-semibold text-gray-900 dark:text-pink-50 mb-1">Ecommerce Store Setup</h3>
                   <p className="text-sm text-gray-600 dark:text-pink-200/80">Custom online store with payment integration</p>
                 </div>
               </motion.div>
@@ -202,14 +202,14 @@ export default function Home() {
                 whileHover={{ y: -4 }}
                 className="group rounded-2xl overflow-hidden border border-gray-200 dark:border-pink-800 hover:border-gray-300 dark:hover:border-pink-700 transition-all bg-white dark:bg-pink-950/30 shadow-sm hover:shadow-md"
               >
-                <div className="aspect-video bg-gradient-to-br from-blue-100 to-cyan-100 relative overflow-hidden">
+                <div className="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Code2 className="text-blue-400" size={40} />
+                    <Palette className="text-purple-400" size={40} />
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-semibold text-gray-900 dark:text-pink-50 mb-1">ShopMDM Platform</h3>
-                  <p className="text-sm text-gray-600 dark:text-pink-200/80">E-commerce site for mobile device management</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-pink-50 mb-1">Shopify E-commerce Store</h3>
+                  <p className="text-sm text-gray-600 dark:text-pink-200/80">Custom Shopify store with brand identity and UX optimization</p>
                 </div>
               </motion.div>
             </Link>
@@ -261,7 +261,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.55 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
+            className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
@@ -283,13 +283,6 @@ export default function Home() {
             >
               <div className="text-3xl font-bold text-gray-900 dark:text-pink-50 mb-1">5+</div>
               <div className="text-sm text-gray-600 dark:text-pink-200/80">Design Tools</div>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 border border-green-200 dark:border-green-800 cursor-pointer"
-            >
-              <div className="text-3xl font-bold text-gray-900 dark:text-pink-50 mb-1">100%</div>
-              <div className="text-sm text-gray-600 dark:text-pink-200/80">Client Satisfaction</div>
             </motion.div>
           </motion.div>
         </div>
