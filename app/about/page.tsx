@@ -52,10 +52,9 @@ const skills = [
     ],
   },
   {
-    category: "AI Tools & Integration",
+    category: "AI CLI",
     icon: Zap,
     items: [
-      { name: "Claude AI", level: 95 },
       { name: "Claude Code CLI", level: 85 },
       { name: "Gemini CLI", level: 90 },
     ],

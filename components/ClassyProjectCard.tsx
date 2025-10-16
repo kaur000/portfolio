@@ -42,14 +42,14 @@ export default function ClassyProjectCard({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // Delay iframe loading for better performance (longer delay)
+            // Load iframe immediately when visible
             if (isInteractive) {
-              setTimeout(() => setShouldLoadIframe(true), 500);
+              setShouldLoadIframe(true);
             }
           }
         });
       },
-      { threshold: 0.1, rootMargin: '100px' }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
     if (cardRef.current) {
