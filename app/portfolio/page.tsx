@@ -6,6 +6,17 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 
 const projects = [
   {
+    title: "Wild Cats ELA Reading Games",
+    description: [
+      "Currently building browser-based reading app with 8 interactive games aligned to grade-level requirements.",
+      "Implementing audio pronunciation features, group play functionality, and comprehensive progress tracking for educators.",
+      "Designing engaging user experience to support elementary students' literacy development.",
+    ],
+    image: "/ksdpng.png",
+    link: "",
+    isInteractive: false,
+  },
+  {
     title: "AI-Powered Portfolio Website",
     description: [
       "Designed and developed modern portfolio website using Next.js, TypeScript, and Tailwind CSS.",

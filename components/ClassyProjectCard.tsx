@@ -171,16 +171,18 @@ export default function ClassyProjectCard({
           </ul>
 
           {/* CTA Button */}
-          <motion.a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ gap: "0.75rem" }}
-            className="inline-flex items-center gap-2 text-gray-900 dark:text-pink-50 font-medium group hover:text-pink-600 dark:hover:text-pink-200 transition-colors w-fit"
-          >
-            {isInteractive ? "View Full Site" : "View Project"}
-            <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </motion.a>
+          {link && (
+            <motion.a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ gap: "0.75rem" }}
+              className="inline-flex items-center gap-2 text-gray-900 dark:text-pink-50 font-medium group hover:text-pink-600 dark:hover:text-pink-200 transition-colors w-fit"
+            >
+              {isInteractive ? "View Full Site" : "View Project"}
+              <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </motion.a>
+          )}
         </div>
       </div>
     </motion.div>
