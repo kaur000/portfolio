@@ -28,7 +28,7 @@ export default function Home() {
               transition={{ duration: 0.4 }}
               className="relative flex-shrink-0"
             >
-              <div className="relative w-48 h-48 md:w-56 md:h-56">
+              <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56">
                 <div className="absolute -inset-3 bg-gradient-to-tr from-pink-500 via-purple-500 to-rose-500 rounded-full blur-xl opacity-20" />
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -55,7 +55,7 @@ export default function Home() {
                 transition={{ duration: 0.4, delay: 0.1 }}
                 className="space-y-3"
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-gray-900 dark:text-pink-50">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-gray-900 dark:text-pink-50">
                   Mehak Saini
                 </h1>
                 <div className="flex items-center gap-3">
@@ -171,7 +171,7 @@ export default function Home() {
             <p className="text-lg text-gray-600 dark:text-pink-100/80">Recent projects showcasing design & development</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
             {/* Featured Project 1 */}
             <Link href="/portfolio">
               <motion.div
@@ -261,7 +261,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.55 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}

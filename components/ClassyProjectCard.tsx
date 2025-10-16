@@ -78,7 +78,7 @@ export default function ClassyProjectCard({
     >
       <div className="relative overflow-hidden bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-pink-500/20 hover:border-gray-300 dark:hover:border-pink-500/30 transition-all duration-300 h-full flex flex-col hover:shadow-lg">
         {/* Preview Section - Enhanced Browser Window */}
-        <div className="relative h-96 overflow-hidden flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+        <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
           {/* Browser Window Frame */}
           <div className="absolute top-0 left-0 right-0 h-11 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-800/80 border-b border-gray-200 dark:border-pink-500/20 z-10 flex items-center px-4 gap-2 shadow-sm">
             {/* Window Buttons */}

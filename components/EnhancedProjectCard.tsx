@@ -39,7 +39,7 @@ export default function EnhancedProjectCard({
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <motion.div
-        className="relative w-full h-[550px] cursor-pointer"
+        className="relative w-full h-[450px] sm:h-[500px] md:h-[550px] cursor-pointer"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
         style={{ transformStyle: "preserve-3d" }}
@@ -65,7 +65,7 @@ export default function EnhancedProjectCard({
 
             {/* Image with parallax */}
             <motion.div
-              className="relative h-72 overflow-hidden"
+              className="relative h-56 sm:h-64 md:h-72 overflow-hidden"
               animate={{
                 scale: isHovered ? 1.05 : 1,
               }}

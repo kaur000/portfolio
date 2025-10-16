@@ -112,7 +112,7 @@ export default function MiniGame() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
             >
               {/* Close Button */}
               <button
@@ -123,11 +123,11 @@ export default function MiniGame() {
               </button>
 
               {/* Header */}
-              <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-pink-50 mb-2">
+              <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-pink-50 mb-2">
                   Catch the Design Icons!
                 </h2>
-                <p className="text-gray-600 dark:text-pink-100/80">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-pink-100/80">
                   Click on falling icons to catch them. You have 30 seconds!
                 </p>
               </div>

@@ -9,6 +9,7 @@ export default function CarGame() {
   const [score, setScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
 
   const handleKeyPress = useCallback((e: KeyboardEvent) => {
     if (!gameStarted || gameOver) return;
@@ -19,6 +20,31 @@ export default function CarGame() {
       setCarPosition((prev) => Math.min(90, prev + 15));
     }
   }, [gameStarted, gameOver]);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (!gameStarted || gameOver) return;
+    setTouchStartX(e.touches[0].clientX);
+  }, [gameStarted, gameOver]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!gameStarted || gameOver || touchStartX === 0) return;
+
+    const touchX = e.touches[0].clientX;
+    const diff = touchX - touchStartX;
+
+    if (Math.abs(diff) > 10) {
+      if (diff < 0) {
+        setCarPosition((prev) => Math.max(10, prev - 15));
+      } else {
+        setCarPosition((prev) => Math.min(90, prev + 15));
+      }
+      setTouchStartX(touchX);
+    }
+  }, [gameStarted, gameOver, touchStartX]);
+
+  const handleTouchEnd = useCallback(() => {
+    setTouchStartX(0);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
@@ -75,14 +101,19 @@ export default function CarGame() {
       <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-6 shadow-2xl border-2 border-gray-700">
         <div className="text-center mb-4">
           <h3 className="text-2xl font-bold text-white mb-2">🏎️ Speed Run</h3>
-          <p className="text-gray-400 text-sm">Use ← → arrows to dodge!</p>
+          <p className="text-gray-400 text-sm">Use ← → arrows or swipe to dodge!</p>
           <div className="text-3xl font-bold text-pink-400 mt-2">
             Score: {score}
           </div>
         </div>
 
         {/* Game Area */}
-        <div className="relative bg-gray-700 rounded-xl overflow-hidden h-96 border-4 border-gray-600">
+        <div
+          className="relative bg-gray-700 rounded-xl overflow-hidden h-96 border-4 border-gray-600"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {/* Road lines */}
           <div className="absolute inset-0 flex justify-center">
             <div className="w-1 bg-yellow-400 opacity-30 animate-pulse"></div>

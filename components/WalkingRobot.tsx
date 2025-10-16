@@ -74,7 +74,7 @@ export default function WalkingRobot() {
   return (
     <>
       <motion.div
-        className="fixed bottom-8 z-50"
+        className="fixed bottom-4 sm:bottom-8 z-50 hidden sm:block"
         style={{
           left: `${position}px`,
           transform: direction === "left" ? "scaleX(-1)" : "scaleX(1)",
