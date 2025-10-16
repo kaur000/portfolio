@@ -63,9 +63,9 @@ export default function CursorTrail() {
               duration: 0.8,
               ease: "easeOut",
             }}
-            className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-400"
+            className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
             style={{
-              boxShadow: "0 0 10px rgba(236, 72, 153, 0.5)",
+              boxShadow: "0 0 15px rgba(6, 182, 212, 0.8), 0 0 30px rgba(59, 130, 246, 0.4)",
             }}
           />
         ))}

@@ -35,19 +35,21 @@ export default function ClassyProjectCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const shapeClass = cardShapes[index % cardShapes.length];
 
-  // Intersection Observer for lazy loading
+  // Intersection Observer for lazy loading - optimized
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // Delay iframe loading for better performance
-            setTimeout(() => setShouldLoadIframe(true), 300);
+            // Delay iframe loading for better performance (longer delay)
+            if (isInteractive) {
+              setTimeout(() => setShouldLoadIframe(true), 500);
+            }
           }
         });
       },
-      { threshold: 0.2, rootMargin: '50px' }
+      { threshold: 0.1, rootMargin: '100px' }
     );
 
     if (cardRef.current) {
@@ -59,7 +61,7 @@ export default function ClassyProjectCard({
         observer.unobserve(cardRef.current);
       }
     };
-  }, []);
+  }, [isInteractive]);
 
   return (
     <motion.div
@@ -75,26 +77,26 @@ export default function ClassyProjectCard({
       className="group h-full"
     >
       <div className="relative overflow-hidden bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-pink-500/20 hover:border-gray-300 dark:hover:border-pink-500/30 transition-all duration-300 h-full flex flex-col hover:shadow-lg">
-        {/* Preview Section - Consistent Browser Window Look */}
-        <div className="relative h-80 overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-gray-900/50">
+        {/* Preview Section - Enhanced Browser Window */}
+        <div className="relative h-96 overflow-hidden flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
           {/* Browser Window Frame */}
-          <div className="absolute top-0 left-0 right-0 h-10 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-pink-500/20 z-10 flex items-center px-4 gap-2">
+          <div className="absolute top-0 left-0 right-0 h-11 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-800/80 border-b border-gray-200 dark:border-pink-500/20 z-10 flex items-center px-4 gap-2 shadow-sm">
             {/* Window Buttons */}
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-400"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-              <div className="w-3 h-3 rounded-full bg-green-400"></div>
+            <div className="flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 transition-colors shadow-sm"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors shadow-sm"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-600 transition-colors shadow-sm"></div>
             </div>
             {/* URL Bar */}
             <div className="flex-1 ml-4 flex items-center">
-              <div className="flex-1 bg-gray-100 dark:bg-gray-700/50 rounded-md px-3 py-1 text-xs text-gray-500 dark:text-pink-200/70 truncate">
+              <div className="flex-1 bg-gray-100 dark:bg-gray-700/50 rounded-lg px-3 py-1.5 text-xs text-gray-500 dark:text-pink-200/70 truncate border border-gray-200 dark:border-gray-600">
                 {link}
               </div>
             </div>
           </div>
 
           {/* Preview Content Area */}
-          <div className="absolute inset-0 top-10 bg-white overflow-hidden">
+          <div className="absolute inset-0 top-11 bg-white dark:bg-gray-900 overflow-hidden">
             {isInteractive ? (
               // Interactive iframe preview for live websites
               <div className="w-full h-full">
@@ -107,27 +109,42 @@ export default function ClassyProjectCard({
                     loading="lazy"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-50 dark:bg-gray-800">
-                    <div className="text-gray-400 dark:text-pink-200/70 text-sm">Loading preview...</div>
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div>
+                      <div className="text-gray-400 dark:text-pink-200/70 text-sm">Loading preview...</div>
+                    </div>
                   </div>
                 )}
               </div>
             ) : (
-              // Static image preview with hover effect
+              // Static image preview with enhanced hover effect
               <motion.div
-                animate={{ scale: isHovered ? 1.05 : 1 }}
-                transition={{ duration: 0.4 }}
+                animate={{ scale: isHovered ? 1.08 : 1 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 className="w-full h-full relative"
               >
                 <Image
                   src={image}
                   alt={title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   priority={index < 2}
+                  quality={90}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Enhanced overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-sm font-medium"
+                  >
+                    <ExternalLink size={16} />
+                    <span>View Project</span>
+                  </motion.div>
+                </div>
               </motion.div>
             )}
           </div>

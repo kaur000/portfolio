@@ -6,6 +6,17 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 
 const projects = [
   {
+    title: "AI-Powered Portfolio Website",
+    description: [
+      "Designed and developed modern portfolio website using Next.js, TypeScript, and Tailwind CSS.",
+      "Leveraged Claude AI (Anthropic) to accelerate development, implement features, and optimize performance.",
+      "Implemented dark mode, responsive design, and smooth animations with Framer Motion for enhanced UX.",
+    ],
+    image: "/portfolio-preview.svg",
+    link: "/",
+    isInteractive: false,
+  },
+  {
     title: "Shopify E-commerce Store",
     description: [
       "Built custom Shopify store for online retail business with product catalog integration.",
@@ -91,7 +102,7 @@ export default function Portfolio() {
               Selected Work
             </h1>
             <p className="text-lg text-gray-600 dark:text-pink-100/80">
-              {projects.length} projects showcasing design & development
+              {projects.length} projects showcasing design, development & AI collaboration
             </p>
           </motion.div>
 
